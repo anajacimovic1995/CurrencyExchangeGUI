@@ -7,7 +7,7 @@ public class Lists {
 	
 	private static LinkedList<Rate> rates;
 	
-	public Lists(LinkedList<Rate> rates) {
+	public Lists() {
 		this.rates = new LinkedList<Rate>();
 		
 	}

@@ -54,12 +54,12 @@ public class RateTableModel extends AbstractTableModel{
 		case 4:
 			return r.getPurchasable();
 		case 5:
-			return r.getAbbreviatedName();
+			return r.getName();
 		}
 		return null;
 	}
 	
-	public void refreshTable(LinkedList<Rate> rates){
+	public void refreshTableModel(LinkedList<Rate> rates){
 		if(rates == null)
 			return;
 		this.rates = rates;

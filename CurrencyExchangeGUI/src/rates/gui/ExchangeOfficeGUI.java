@@ -309,8 +309,7 @@ public class ExchangeOfficeGUI extends JFrame {
 	}
 
 	public void refreshTable(LinkedList<Rate> rates) {
-		((RateTableModel)table.getModel()).refreshTable(rates);
+		((RateTableModel)table.getModel()).refreshTableModel(rates);
 		
 	}
-}
-
+}		

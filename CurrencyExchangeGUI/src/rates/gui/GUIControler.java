@@ -13,11 +13,14 @@ import rates.classes.Rate;
 public class GUIControler {
 	
 	private static ExchangeOfficeGUI main;
+	private static Lists list;
+	
 		
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {	
+				try {
+					list = new Lists();
 					main = new ExchangeOfficeGUI();
 					main.setVisible(true);
 				} catch (Exception e) {
@@ -82,7 +85,7 @@ public class GUIControler {
 	}
 
 	public static void add(String sifra, String naziv, String prodajni, String kupovni, String srednji, String skraceniNaziv){
-		main.write("New rate : " + sifra + " " + skraceniNaziv + " " + prodajni + " " + srednji + " " + kupovni + " " + naziv); 
+		main.write("New rate : " + sifra + " " + naziv + " " + prodajni + " " + srednji + " " + kupovni + " " + skraceniNaziv); 
 		Rate r = new Rate(sifra, skraceniNaziv, Double.parseDouble(prodajni.trim()), Double.parseDouble(srednji.trim()), Double.parseDouble(kupovni.trim()), naziv);
 		addToList(r);
 		main.refreshTable(returnList());
