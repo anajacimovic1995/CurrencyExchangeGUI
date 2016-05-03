@@ -28,7 +28,7 @@ public class Lists {
 	}
 	
 	public static void removeRate(int index){
-		if(index <= 0)
+		if(index < 0)
 			return;
 		
 		rates.remove(index);
