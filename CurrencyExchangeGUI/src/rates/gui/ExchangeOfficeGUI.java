@@ -217,7 +217,7 @@ public class ExchangeOfficeGUI extends JFrame {
 			btnIzvrsiZamenu = new JButton("Exchange");
 			btnIzvrsiZamenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					GUIControler.exchangeGUI();
 				}
 			});
 			btnIzvrsiZamenu.setPreferredSize(new Dimension(115, 23));
@@ -277,6 +277,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Exchange");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUIControler.exchangeGUI();
+				}
+			});
 			
 		}
 		return mntmIzvrsiZamenu;

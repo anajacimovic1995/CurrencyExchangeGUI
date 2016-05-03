@@ -111,4 +111,15 @@ public class GUIControler {
 			JOptionPane.showMessageDialog(main, "Error!" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	public static void exchangeGUI(){
+		ExchangeGUI exchangeGUI = new ExchangeGUI();
+		exchangeGUI.setVisible(true);
+		exchangeGUI.setLocationRelativeTo(null);
+	}
+
+	public static void change(String s) {
+		if(!s.isEmpty())
+			main.write("Made replacement: " + s);	
+	}
 }
