@@ -202,7 +202,7 @@ public class ExchangeOfficeGUI extends JFrame {
 			btnIzbrisiKurs = new JButton("Remove rate");
 			btnIzbrisiKurs.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					
+					GUIControler.delete();
 				}
 			});
 			btnIzbrisiKurs.setPreferredSize(new Dimension(115, 23));
@@ -266,6 +266,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmIzbrisiKurs() {
 		if (mntmIzbrisiKurs == null) {
 			mntmIzbrisiKurs = new JMenuItem("Remove rate");
+			mntmIzbrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUIControler.delete();
+				}
+			});
 		}
 		return mntmIzbrisiKurs;
 	}

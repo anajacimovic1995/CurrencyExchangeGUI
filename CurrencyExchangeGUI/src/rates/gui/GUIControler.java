@@ -88,4 +88,27 @@ public class GUIControler {
 		main.refreshTable(returnList());
 	}
 	
+	public static void removeFromList(int index){
+		Lists.removeRate(index);
+	}
+	
+	public static void delete(){
+		try {
+			int value = main.returnRow();
+			
+			if(value == -1){
+				JOptionPane.showMessageDialog(main, "Choose row which you want to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			int value1 = JOptionPane.showConfirmDialog(main, "Are you sure that you want to delete this row?", "Attention",JOptionPane.YES_NO_OPTION);
+			
+			if(value1 == JOptionPane.YES_OPTION){
+				removeFromList(value);
+				main.refreshTable(returnList());
+				main.write(value + ". row is deleted!");
+			}
+		} catch (HeadlessException e) {
+			JOptionPane.showMessageDialog(main, "Error!" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 }
