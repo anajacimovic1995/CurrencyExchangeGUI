@@ -18,7 +18,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 import javax.swing.border.TitledBorder;
 
-
+import rates.classes.Rate;
 
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -33,6 +33,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.LinkedList;
 
 
 public class ExchangeOfficeGUI extends JFrame {
@@ -189,7 +190,7 @@ public class ExchangeOfficeGUI extends JFrame {
 			btnDodajKurs = new JButton("Add rate");
 			btnDodajKurs.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					GUIControler.newRateGUI();					
 				}
 			});
 			btnDodajKurs.setPreferredSize(new Dimension(115, 23));
@@ -253,6 +254,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Add rate");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUIControler.newRateGUI();
+				}
+			});
 			
 		}
 		return mntmDodajKurs;
@@ -286,6 +292,15 @@ public class ExchangeOfficeGUI extends JFrame {
 			textArea.setPreferredSize(new Dimension(6, 22));
 		}
 		return textArea;
+	}
+
+	public void write(String string) {
+		textArea.append(string + "\n");		
+	}
+
+	public void refreshTable(LinkedList<Rate> rates) {
+		((RateTableModel)table.getModel()).refreshTable(rates);
+		
 	}
 }
 

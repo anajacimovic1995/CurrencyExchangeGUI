@@ -34,9 +34,9 @@ public class GUIControler {
 	public static String open(){
 		try {
 			JFileChooser fc = new JFileChooser();
-			int povratnaVrednost = fc.showOpenDialog(main);
+			int value = fc.showOpenDialog(main);
 			
-			if(povratnaVrednost == fc.APPROVE_OPTION){
+			if(value == fc.APPROVE_OPTION){
 				return "Upload file: " + fc.getSelectedFile().getAbsolutePath()+ " \n";
 			}
 				return "";
@@ -70,6 +70,22 @@ public class GUIControler {
 	}
 	public static void about(){
 		JOptionPane.showMessageDialog(main, "Name and surname: Ana Jacimovic\n ", "About", JOptionPane.NO_OPTION);
+	}
+	
+	public static void addToList(Rate r){
+		Lists.addRate(r);	
+	}
+	public static void newRateGUI(){
+		AddRateGUI addRate = new AddRateGUI();
+		addRate.setVisible(true);
+		addRate.setLocationRelativeTo(null);
+	}
+
+	public static void add(String sifra, String naziv, String prodajni, String kupovni, String srednji, String skraceniNaziv){
+		main.write("New rate : " + sifra + " " + skraceniNaziv + " " + prodajni + " " + srednji + " " + kupovni + " " + naziv); 
+		Rate r = new Rate(sifra, skraceniNaziv, Double.parseDouble(prodajni.trim()), Double.parseDouble(srednji.trim()), Double.parseDouble(kupovni.trim()), naziv);
+		addToList(r);
+		main.refreshTable(returnList());
 	}
 	
 }
