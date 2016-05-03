@@ -72,7 +72,7 @@ public class GUIControler {
 		}
 	}
 	public static void about(){
-		JOptionPane.showMessageDialog(main, "Name and surname: Ana Jacimovic\n ", "About", JOptionPane.NO_OPTION);
+		JOptionPane.showMessageDialog(main, "Name and surname: Ana Jacimovic\n ", "About author", JOptionPane.NO_OPTION);
 	}
 	
 	public static void addToList(Rate r){
