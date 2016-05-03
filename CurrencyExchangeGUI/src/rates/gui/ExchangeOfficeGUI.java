@@ -106,6 +106,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmAbout() {
 		if (mntmAbout == null) {
 			mntmAbout = new JMenuItem("About");
+			mntmAbout.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUIControler.about();
+				}
+			});
 			
 		}
 		return mntmAbout;
@@ -113,6 +118,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmOpen() {
 		if (mntmOpen == null) {
 			mntmOpen = new JMenuItem("Open");
+			mntmOpen.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					textArea.append(GUIControler.open());
+				}
+			});
 			
 			mntmOpen.setIcon(new ImageIcon(ExchangeOfficeGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/newFolder.gif")));
 			mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
@@ -122,6 +132,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmSave() {
 		if (mntmSave == null) {
 			mntmSave = new JMenuItem("Save");
+			mntmSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					textArea.append(GUIControler.save());
+				}
+			});
 			
 			mntmSave.setIcon(new ImageIcon(ExchangeOfficeGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 			mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
@@ -131,6 +146,11 @@ public class ExchangeOfficeGUI extends JFrame {
 	private JMenuItem getMntmExit() {
 		if (mntmExit == null) {
 			mntmExit = new JMenuItem("Exit");
+			mntmExit.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					GUIControler.exit();
+				}
+			});
 			
 			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
 		}
@@ -188,7 +208,7 @@ public class ExchangeOfficeGUI extends JFrame {
 		}
 		return btnIzbrisiKurs;
 	}
-	public int vratiRed(){
+	public int returnRow(){
 		return table.getSelectedRow();
 	}
 	private JButton getBtnIzvrsiZamenu() {
